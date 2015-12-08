@@ -1,0 +1,1 @@
+SELECT RIGHT(ReportNumber , CHARINDEX ('-' ,REVERSE(ReportNumber))-1) from ST_NDTRequestPieceMark where ID=163

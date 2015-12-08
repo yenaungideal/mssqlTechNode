@@ -1,0 +1,16 @@
+if(@ReportID=0)
+	BEGIN
+		Select distinct A.ReportID,A.UserReportNumber from ST_NDTRequestPieceMark A
+		inner join ST_NDTRequestPieceMarkDetails B on A.ID=B.NDTPieceMarkID and B.IsActive=1
+		where A.Isactive=1 and A.ReportID
+		not in 
+		(select distinct  ST_JobOrder.NDTRequestPieceMarkReportID  ReportID from ST_JobOrder  where ST_JobOrder.IsActive=1 and ST_JobOrder.NDTRequestPieceMarkReportID is not null)
+	END
+	ELSE
+	BEGIN
+		Select distinct A.ReportID,A.UserReportNumber from ST_NDTRequestPieceMark A
+		inner join ST_NDTRequestPieceMarkDetails B on A.ID=B.NDTPieceMarkID and B.IsActive=1
+		where A.Isactive=1 and A.ReportID
+		not in 
+		(select distinct  ST_JobOrder.NDTRequestPieceMarkReportID  ReportID from ST_JobOrder  where ST_JobOrder.IsActive=1 and ST_JobOrder.NDTRequestPieceMarkReportID is not null and ST_JobOrder.NDTRequestPieceMarkReportID != @ReportID)		
+	END
