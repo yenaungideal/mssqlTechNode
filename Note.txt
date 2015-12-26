@@ -1,2 +1,4 @@
 ALTER TABLE ST_JobOrder DROP COLUMN NDTPieceMarkReportID      -----DropColumn
 ALTER TABLE ST_JobOrderDetails Add RepType int                -----AddColumn
+ALTER TABLE tbl_Country MODIFY IsDeleted tinyint(1) NOT NULL;
+ALTER TABLE tbl_Country CHANGE IsDeleted IsDeleted tinyint(1) NOT NULL;
