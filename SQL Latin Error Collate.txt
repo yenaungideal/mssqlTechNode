@@ -1,0 +1,2 @@
+CREATE TABLE #temptable
+(Description nvarchar(150) COLLATE DATABASE_DEFAULT, Process varchar(10) COLLATE DATABASE_DEFAULT, variables nvarchar(250) COLLATE DATABASE_DEFAULT)
